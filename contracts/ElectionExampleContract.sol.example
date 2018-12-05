@@ -1,0 +1,23 @@
+pragma solidity ^0.4.2;
+	// smoke test - ensure the setup is correct 
+	//constructor - something that will run when the contract is initialized on migration i.e def init
+	// set the value of a variable - i.e a candidate name
+	// To do this nees to be able to store and read candidate name 
+	// will run whenever contract deployed to bc - therefore its public
+	// state variable, accessible inside the contract, though will belong to the entire contract
+
+contract Election {
+	// store candidate	
+	//
+
+	// read candidate
+	string public candidate;
+	// constructor
+	function Election () public {
+		candidate = "Candidate 1";	
+	}
+
+	// list all candidates i.e multiple
+	// Need to track how many votes and reference them by id
+
+}
