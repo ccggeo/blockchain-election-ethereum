@@ -52,18 +52,25 @@ contract Election {
 		candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
 	}
 
-	function vote (uint _candidateid) public{
+	function vote (uint _candidateId) public{
+		//Require that they have not voted before
+		// check voters mapping for account. require it is not there to continue
+		require(!voters[msg.sender]);
+
+		//Require a valid candidate
+		require(_candidateId > 0 && _candidateId <= candidatesCount);
+
 		// increase vote count for candidate
 		// read the candidate out of the candidate mapping
 		// increment the vote count in the candidate struct returned from the mapping  
 		
 		// reference the candidates mapping
-		candidates[_candidateid].voteCount ++;
+		voters[msg.sender] = true;
+		candidates[_candidateId].voteCount ++;
 		
 		// record that voeter has voted so one person per vote.
 		// Person tracked via their account. This comes from solidity metadata. i.e msg.sender
 		// reference the voters mapping, read the acocunt out of that mapping and set it to true 
-		voters[msg.sender] = true;
 
 	}
 }
