@@ -1,4 +1,3 @@
-//write in js to simulate client side interactions
 // mocha and chai assertion library 
 
 // artifact for abstraction for interaction
@@ -38,4 +37,26 @@ contract("Election", function(accounts) {
       assert.equal(candidate[1], "Candidate 2", "contains the correct name");
       assert.equal(candidate[2], 0, "contains the correct votes count");
     });
+
+  // vote function test
+  // test function increments
+  // check voter added to the created mapping
+
   });
+
+	  it("allows a voter to cast a vote", function() {
+    return Election.deployed().then(function(instance) {
+      electionInstance = instance;
+      candidateId = 1;
+      return electionInstance.vote(candidateId, { from: accounts[0] });
+    }).then(function(receipt) {
+      return electionInstance.voters(accounts[0]);
+    }).then(function(voted) {
+      assert(voted, "the voter was marked as voted");
+      return electionInstance.candidates(candidateId);
+    }).then(function(candidate) {
+      var voteCount = candidate[2];
+      assert.equal(voteCount, 1, "increments the candidate's vote count");
+    })
+  });
+

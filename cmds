@@ -1,4 +1,6 @@
 Useful commands:
 web3.eth.accounts - list ethernet accounts 
 npm run dev - run light server (html page)
-// 1:12:34
+// send a vote with solidity metadate. Returns transation receipt
+app.vote(1, {from: web3.eth.accounts[0]}) -
+// 1:28:58
