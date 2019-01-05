@@ -20,7 +20,10 @@ contract Election {
 	// store accounts that have voted with new mapping
 	mapping(address => bool) public voters;
 
-
+	//voted event
+	event votedEvent(
+		uint indexed _candidateId
+	);
 
 
 	// Store Candidates Count - How many candidates there are
@@ -71,7 +74,9 @@ contract Election {
 		// record that voeter has voted so one person per vote.
 		// Person tracked via their account. This comes from solidity metadata. i.e msg.sender
 		// reference the voters mapping, read the acocunt out of that mapping and set it to true 
-
+	
+		// trigger voted event
+		emit votedEvent(_candidateId);
 	}
 }
 
