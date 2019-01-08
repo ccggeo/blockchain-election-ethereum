@@ -7,3 +7,4 @@ app.vote(1, {from: web3.eth.accounts[0]}) -
 // timer 
 // Candidate pages
 // Restrict any account not registered 
+// Add an about page and link to blockchain 

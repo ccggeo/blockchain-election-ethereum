@@ -1,0 +1,10 @@
+1. Run ganache
+
+ganache-cli  
+
+npm run dev - run light server (html page)
+
+2. Reset ethereum blockchain and start up light server - run html page 
+	- truffle migrate --reset && npm run dev 
+
+3. Connect to local blockchain with metamask and reload page 

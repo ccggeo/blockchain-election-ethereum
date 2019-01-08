@@ -20,7 +20,7 @@ contract Election {
 	// store accounts that have voted with new mapping
 	mapping(address => bool) public voters;
 
-	//voted event
+	// voted event to refresh page once vote taken place
 	event votedEvent(
 		uint indexed _candidateId
 	);
@@ -39,8 +39,10 @@ contract Election {
 	function Election () public {
 		// add candidates called within the functiuon so contract has control
 		// will run whenever the contract is initialized and deployed to BC
-		addCandidate("Candidate 1");
-		addCandidate("Candidate 2");
+		addCandidate("Yes");
+		addCandidate("No");
+		addCandidate("Not Sure");
+
 	}
 
 
